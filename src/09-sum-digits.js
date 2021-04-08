@@ -13,17 +13,17 @@
 function getSumOfDigits(n) {
   function sum(num) {
     let result = 0;
-    let myFunc = (num) => Number(num);
-    var arr = Array.from(String(num), myFunc);
+    const arr = Array.from(String(num), Number);
     for (let i = 0; i < arr.length; i++) {
       result += arr[i];
     }
     return result;
   }
-  while (n > 9) {
-    n = sum(n);
+  let el = n;
+  while (el > 9) {
+    el = sum(el);
   }
-  return n;
+  return el;
 }
 
 module.exports = getSumOfDigits;

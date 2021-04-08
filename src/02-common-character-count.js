@@ -11,11 +11,11 @@
  */
 function getCommonCharacterCount(s1, s2) {
   function count(array) {
-    let obj = {};
+    const obj = {};
     for (let i = 0; i < array.length; i++) {
-      let cur = array[i];
+      const cur = array[i];
       if (obj[cur]) {
-        obj[cur] = obj[cur] + 1;
+        obj[cur] += 1;
       } else {
         obj[cur] = 1;
       }
@@ -23,14 +23,14 @@ function getCommonCharacterCount(s1, s2) {
     return obj;
   }
   let temp = 0;
-  let s1Arr = s1.split('');
-  let s2Arr = s2.split('');
-  let s1Obj = count(s1Arr);
-  let s2Obj = count(s2Arr);
-  let s1Keys = Object.keys(s1Obj);
+  const s1Arr = s1.split('');
+  const s2Arr = s2.split('');
+  const s1Obj = count(s1Arr);
+  const s2Obj = count(s2Arr);
+  const s1Keys = Object.keys(s1Obj);
 
   for (let i = 0; i < s1Keys.length; i++) {
-    let key = s1Keys[i];
+    const key = s1Keys[i];
     if (s2Obj[key]) {
       temp += Math.min(s1Obj[key], s2Obj[key]);
     }
