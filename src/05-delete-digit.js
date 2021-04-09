@@ -11,19 +11,15 @@
  */
 function deleteDigit(n) {
   const arr = Array.from(n.toString());
-  const sortedArr = arr.slice().sort(function (a, b) {
-    return a - b;
-  });
+  const sortedArr = arr.slice().sort((a, b) => a - b);
+  const index = arr.indexOf(sortedArr[0]);
   const result = [];
-  while (arr.length !== arr.length - 2) {
-    arr.forEach((el) => {
-      if (el !== sortedArr[0]) {
-        result.push(el);
-      }
-    });
+  for (let i = 0; i < arr.length; i++) {
+    if (i !== index) {
+      result.push(arr[i]);
+    }
   }
-
-  return result.join('');
+  return parseInt(result.join(''), 10);
 }
 
 module.exports = deleteDigit;
